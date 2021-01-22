@@ -89,15 +89,16 @@ exports.handler = async function (event, context, callback) {
     });
   }
 
-  /* let key = '';
-  if (key in provinces) {
+  let key = event.path.split('/');
+  key.shift();
+  /* if (key in provinces) {
     return true;
   } */
 
   return callback(null, {
     statusCode: 200,
-    body: {
-      message: event.path,
-    },
+    body: JSON.stringify({
+      message: key,
+    }),
   });
 };
