@@ -93,8 +93,6 @@ exports.handler = async function (event, context, callback) {
 
   return callback(null, {
     statusCode: 200,
-    body: JSON.stringify({
-      message: key in provinces ? provinces[key] : provinces,
-    }),
+    body: JSON.stringify(key in provinces ? provinces[key] : provinces),
   });
 };
