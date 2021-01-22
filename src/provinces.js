@@ -89,8 +89,7 @@ exports.handler = async function (event, context, callback) {
     });
   }
 
-  let key = event.path.split('/');
-  key.shift();
+  let key = event.path.replace(/\/provinces\/?/gm, '').split('/');
   /* if (key in provinces) {
     return true;
   } */
