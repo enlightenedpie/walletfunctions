@@ -90,14 +90,11 @@ exports.handler = async function (event, context, callback) {
   }
 
   let key = event.path.replace(/\/provinces\/?/gm, '').split('/');
-  /* if (key in provinces) {
-    return true;
-  } */
 
   return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
-      message: key,
+      message: key in provinces ? provinces[key] : provinces,
     }),
   });
 };
