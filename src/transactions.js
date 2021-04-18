@@ -25,10 +25,10 @@ exports.handler = async function (event, context, callback) {
     });
   }
 
-  const { max, page = 1 } = event.queryStringParameters,
+  const { max = 10, page = 1 } = event.queryStringParameters,
     returnObj = {};
 
-  let maxAmount = max || 10,
+  let maxAmount = max,
     startIndex = ((page-1) * maxAmount),
     endIndex = startIndex + maxAmount;
 
@@ -38,6 +38,6 @@ exports.handler = async function (event, context, callback) {
 
   return callback(null, {
     statusCode: 200,
-    body: JSON.stringify(returnObj),
+    body: JSON.stringify(transactionHistory),
   });
 };
