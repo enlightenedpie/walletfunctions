@@ -28,7 +28,7 @@ exports.handler = async function (event, context, callback) {
   const { max, page = 1 } = event.queryStringParameters,
     returnObj = {};
 
-  let maxAmount = max ?? 10,
+  let maxAmount = max || 10,
     startIndex = ((page-1) * maxAmount),
     endIndex = startIndex + maxAmount;
 
