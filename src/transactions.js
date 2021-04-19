@@ -29,14 +29,17 @@ exports.handler = async function (event, context, callback) {
     } while (i < 30);
 
   const { max = 10, page = 1 } = event.queryStringParameters,
-    returnObj = {};
+    returnObj = [];
 
   let maxAmount = max,
     startIndex = ((page-1) * maxAmount),
     endIndex = startIndex + maxAmount;
 
   Object.keys(transactionHistory).slice([startIndex], [endIndex]).map((item, i) => {
-    returnObj[item] = transactionHistory[item];
+    returnObj.push({
+      id: item,
+      ...transactionHistory[item]
+    });
   });
 
   return callback(null, {
