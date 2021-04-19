@@ -15,7 +15,7 @@ exports.handler = async function (event, context, callback) {
 
   let i = 0;
 
-  if (transactionHistory.length < 1)
+  if (Object.keys(transactionHistory).length < 1)
     do {
       let tID = crypto.randomBytes(16).toString(36);
   
