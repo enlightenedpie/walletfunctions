@@ -19,13 +19,13 @@ exports.handler = async function (event, context, callback) {
     do {
       let tID = crypto.randomBytes(16).toString(36);
   
-      Object.assign(transactionHistory, {[tID]: {
+      transactionHistory[tID] = {
         type: (i+1 % 2) ? 'withdrawal' : 'deposit',
         amount: 39900,
         timestamp: new Date('2019-10-10'),
         to: 'Jack',
         from: 'Diane'
-      }});
+      };
 
       i++;
     } while (i < 30);
@@ -43,6 +43,6 @@ exports.handler = async function (event, context, callback) {
 
   return callback(null, {
     statusCode: 200,
-    body: JSON.stringify(returnObj),
+    body: JSON.stringify(transactionHistory),
   });
 };
