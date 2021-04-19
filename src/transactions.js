@@ -13,17 +13,22 @@ exports.handler = async function (event, context, callback) {
     });
   }
 
-  if (transactionHistory.length < 1) [...30].map((ind) => {
-    let tID = crypto.randomBytes(16).toString(36);
+  let i = 0;
+
+  if (transactionHistory.length < 1)
+    do {
+      let tID = crypto.randomBytes(16).toString(36);
   
-    Object.assign(transactionHistory, {[tID]: {
-      type: (ind+1 % 2) ? 'withdrawal' : 'deposit',
-      amount: 39900,
-      timestamp: new Date('2019-10-10'),
-      to: 'Jack',
-      from: 'Diane'
-    }});
-  });
+      Object.assign(transactionHistory, {[tID]: {
+        type: (i+1 % 2) ? 'withdrawal' : 'deposit',
+        amount: 39900,
+        timestamp: new Date('2019-10-10'),
+        to: 'Jack',
+        from: 'Diane'
+      }});
+
+      i++;
+    } while (i < 30);
 
   const { max = 10, page = 1 } = event.queryStringParameters,
     returnObj = {};
@@ -38,6 +43,6 @@ exports.handler = async function (event, context, callback) {
 
   return callback(null, {
     statusCode: 200,
-    body: JSON.stringify(transactionHistory),
+    body: JSON.stringify(returnObj),
   });
 };
