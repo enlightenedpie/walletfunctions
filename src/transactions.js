@@ -20,7 +20,7 @@ exports.handler = async function (event, context, callback) {
       transactionHistory[tID] = {
         type: (i+1 % 2) ? 'withdrawal' : 'deposit',
         amount: 39900,
-        timestamp: new Date('2019-10-10'),
+        timestamp: Date.parse('2019-10-10'),
         to: 'Jack',
         from: 'Diane'
       };
