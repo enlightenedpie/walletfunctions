@@ -2,7 +2,7 @@ const crypto = require("crypto");
 
 var transactionHistory = {
   'utfutf-yicviyf3cykugc3': {
-    type: (ind+1 % 2) ? 'withdrawal' : 'deposit',
+    type: (0+1 % 2) ? 'withdrawal' : 'deposit',
     amount: 39900,
     timestamp: new Date('2019-10-10'),
     to: 'Jack',
