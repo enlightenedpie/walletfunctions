@@ -18,7 +18,7 @@ exports.handler = async function (event, context, callback) {
       let tID = (Math.floor(Math.random() * Date.now()) + Date.now()).toString(36).toUpperCase();
   
       transactionHistory[tID] = {
-        type: (i+1 % 2) ? 'withdrawal' : 'deposit',
+        type: (i % 2) ? 'withdrawal' : 'deposit',
         amount: 39900,
         timestamp: Date.parse('2019-10-10'),
         to: 'Jack',
