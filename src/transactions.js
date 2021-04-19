@@ -1,5 +1,3 @@
-const uuidv4 = require("uuid/v4");
-
 var transactionHistory = {};
 
 exports.handler = async function (event, context, callback) {
@@ -17,7 +15,7 @@ exports.handler = async function (event, context, callback) {
 
   if (Object.keys(transactionHistory).length < 1)
     do {
-      let tID = uuidv4();
+      let tID = (Math.floor(Math.random() * 10000) + Date.now()).toString(36).toUpperCase();
   
       transactionHistory[tID] = {
         type: (i+1 % 2) ? 'withdrawal' : 'deposit',
