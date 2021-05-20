@@ -3,7 +3,7 @@ var transactionHistory = {};
 exports.handler = async function (event, context, callback) {
   if (event.httpMethod !== 'GET') {
     return callback(null, {
-      statusCode: 403,
+      statusCode: 405,
       body: JSON.stringify({
         error: 'RESTVerbError',
         message: 'Only GET requests allowed, you cheeky monkey!!',
