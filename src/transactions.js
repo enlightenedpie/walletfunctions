@@ -38,7 +38,7 @@ exports.handler = async function (event, context, callback) {
 
   let endIndex = startIndex + maxAmount;
 
-  Object.keys(transactionHistory).slice([startIndex], [endIndex]).map((item, i) => {
+  Object.keys(transactionHistory).slice([startIndex], [endIndex]).map((item) => {
     returnObj.push({
       id: item,
       ...transactionHistory[item]
