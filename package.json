@@ -1,0 +1,12 @@
+{
+  "name": "wallet-functions",
+  "version": "1.0.0",
+  "description": "Cloud functions for Bushel Wallet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enlightenedpie/walletfunctions.git"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
