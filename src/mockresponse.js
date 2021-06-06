@@ -7,7 +7,7 @@ exports.handler = async function (event, context, callback) {
   setTimeout(() => {return;}, timeout);
 
   return callback(null, {
-    statusCode:  statusCode,
+    statusCode: statusCode,
     body: event.body,
   });
 };
