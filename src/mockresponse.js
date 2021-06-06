@@ -4,6 +4,6 @@ exports.handler = async function (event, context, callback) {
 
   return callback(null, {
     statusCode: 200,
-    body: JSON.stringify(keys),
+    body: JSON.stringify(keys.length),
   });
 };
