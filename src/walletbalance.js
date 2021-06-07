@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-var walletBalance = 100000.23;
+var walletBalance = 10000023;
 
 exports.handler = async function (event, context, callback) {
   if (event.httpMethod !== 'GET') {
